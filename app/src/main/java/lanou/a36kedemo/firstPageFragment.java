@@ -25,6 +25,11 @@ public class firstPageFragment extends BaseFragment {
     }
 
     @Override
+    protected void addAdapter() {
+        
+    }
+
+    @Override
     protected void initView() {
         viewPager = bindView(R.id.vp_firstPage);
         tabLayout = bindView(R.id.tb_firstPage);
