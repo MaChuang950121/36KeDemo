@@ -1,18 +1,21 @@
 package lanou.a36kedemo;
 
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
+import lanou.a36kedemo.attention.AttentionFragment;
 import lanou.a36kedemo.base.BaseActivity;
+import lanou.a36kedemo.find.FindFragment;
+import lanou.a36kedemo.firstpage.FirstPageFragment;
+import lanou.a36kedemo.mine.MineFragment;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private RadioButton firstPage;
+    private RadioButton first;
     private RadioButton attention;
     private RadioButton find;
     private RadioButton mine;
@@ -24,12 +27,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initViews() {
-        firstPage = bindView(R.id.rb_firstPage);
+        first = bindView(R.id.rb_first);
         attention = bindView(R.id.rb_attention);
         find = bindView(R.id.rb_find);
         mine = bindView(R.id.rb_mine);
-        setOnClick(this,firstPage,attention,find,mine);
-
+        setOnClick(this,first,attention,find,mine);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fl_replace,new FirstPageFragment());
+        transaction.commit();
     }
 
 
@@ -38,17 +44,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         switch (view.getId()){
-            case R.id.rb_firstPage:
-                transaction.replace(R.id.fl_replace,new firstPageFragment());
+            case R.id.rb_first:
+                transaction.replace(R.id.fl_replace,new FirstPageFragment());
                 break;
             case R.id.rb_attention:
-                transaction.replace(R.id.fl_replace,new attentionFragment());
+                transaction.replace(R.id.fl_replace,new AttentionFragment());
                 break;
             case R.id.rb_find:
-                transaction.replace(R.id.fl_replace,new findFragment());
+                transaction.replace(R.id.fl_replace,new FindFragment());
                 break;
             case R.id.rb_mine:
-                transaction.replace(R.id.fl_replace,new mineFragment());
+                transaction.replace(R.id.fl_replace,new MineFragment());
                 break;
         }
         transaction.commit();

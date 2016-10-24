@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
+        android:layout_weight="8"
         android:id="@+id/fl_replace"></FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,8 @@
             android:text="首页"
             android:gravity="center"
             android:button="@null"
-            android:id="@+id/rb_firstPage"
+            android:id="@+id/rb_first"
+            android:drawableTop="@drawable/tabs_firstpage"
             />
         <RadioButton
             android:layout_width="0dp"
@@ -33,6 +34,7 @@
             android:gravity="center"
             android:button="@null"
             android:id="@+id/rb_attention"
+            android:drawableTop="@drawable/tabs_attention"
             />
         <RadioButton
             android:layout_width="0dp"
@@ -42,6 +44,7 @@
             android:button="@null"
             android:gravity="center"
             android:id="@+id/rb_find"
+            android:drawableTop="@drawable/tabs_find"
             />
         <RadioButton
             android:layout_width="0dp"
@@ -51,6 +54,7 @@
             android:button="@null"
             android:gravity="center"
             android:id="@+id/rb_mine"
+            android:drawableTop="@drawable/tabs_mine"
             />
     </LinearLayout>
 </LinearLayout>

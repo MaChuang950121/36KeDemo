@@ -54,7 +54,5 @@ public abstract class BaseFragment extends Fragment{
     protected void bindFragment(ArrayList<Fragment> arrayList,Fragment fragment){
         arrayList.add(fragment);
     }
-    protected void showViews(FragmentPagerAdapter adapter){
 
-    }
 }
