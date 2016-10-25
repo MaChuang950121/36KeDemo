@@ -39,6 +39,10 @@ public class FirstPageFragment extends BaseFragment {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    protected void addAsyncTask() {
+
+    }
 
 
     @Override

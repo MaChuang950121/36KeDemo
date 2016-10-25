@@ -10,6 +10,11 @@ import lanou.a36kedemo.base.BaseFragment;
  */
 public class FindFragment extends BaseFragment {
     @Override
+    protected void addAsyncTask() {
+
+    }
+
+    @Override
     protected void addFragmentArrayList() {
 
     }

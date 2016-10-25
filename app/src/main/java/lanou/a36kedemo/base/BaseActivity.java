@@ -18,8 +18,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         initViews();
+        initData();
 
     }
+
+    protected abstract void initData();
+
     protected abstract int getLayout();
     protected abstract void initViews();
     protected <T extends View> T bindView(int id){

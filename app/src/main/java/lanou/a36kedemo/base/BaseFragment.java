@@ -31,12 +31,16 @@ public abstract class BaseFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         initView();
         addFragmentArrayList();
+        addAsyncTask();
         addAdapter();
-
     }
 
-    protected abstract void addFragmentArrayList();
     protected abstract void addAdapter();
+
+    protected abstract void addAsyncTask();
+
+    protected abstract void addFragmentArrayList();
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

@@ -14,14 +14,21 @@ public class AttentionFragment extends BaseFragment {
     private ListView listView;
 
     @Override
-    protected void addFragmentArrayList() {
+    protected void addAdapter() {
 
     }
 
     @Override
-    protected void addAdapter() {
+    protected void addAsyncTask() {
 
     }
+
+    @Override
+    protected void addFragmentArrayList() {
+
+    }
+
+
 
     @Override
     protected void initView() {

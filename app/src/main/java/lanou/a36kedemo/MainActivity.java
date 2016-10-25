@@ -21,6 +21,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton mine;
 
     @Override
+    protected void initData() {
+        first.setChecked(true);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fl_replace,new FirstPageFragment());
+        transaction.commit();
+    }
+
+    @Override
     protected int getLayout() {
         return R.layout.activity_main;
     }
@@ -32,10 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         find = bindView(R.id.rb_find);
         mine = bindView(R.id.rb_mine);
         setOnClick(this,first,attention,find,mine);
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fl_replace,new FirstPageFragment());
-        transaction.commit();
+
     }
 
 
