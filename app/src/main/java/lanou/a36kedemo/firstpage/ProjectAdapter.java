@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import lanou.a36kedemo.R;
@@ -16,25 +17,28 @@ import lanou.a36kedemo.R;
  * Created by dllo on 16/10/25.
  */
 public class ProjectAdapter extends BaseAdapter {
-    ArrayList<ProjectBean.DataBean.DataBeans> arrayList;
+
     Context context;
+    ArrayList<ProjectBean.DataBean.DataBeans> bean;
+
+    public void setBean(ArrayList<ProjectBean.DataBean.DataBeans> bean) {
+        this.bean = bean;
+    }
 
     public ProjectAdapter(Context context) {
         this.context = context;
     }
 
-    public void setArrayList(ArrayList<ProjectBean.DataBean.DataBeans> arrayList) {
-        this.arrayList = arrayList;
-    }
+
 
     @Override
     public int getCount() {
-        return arrayList == null ? 0 : arrayList.size();
+        return bean == null ? 0 : bean.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return arrayList.get(i);
+        return bean.get(i);
     }
 
     @Override
@@ -52,10 +56,12 @@ public class ProjectAdapter extends BaseAdapter {
         }else{
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.date.setText(String.valueOf(arrayList.get(i).getPublishTime()));
-        viewHolder.source.setText(arrayList.get(i).getType());
-        viewHolder.title.setText(arrayList.get(i).getTitle());
-
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        viewHolder.date.setText(format.format(bean.get(i).getPublishTime()));
+        viewHolder.source.setText(bean.get(i).getColumnName());
+        viewHolder.title.setText(bean.get(i).getTitle());
+        Picasso.with(context).load(bean.get(i).getFeatureImg()).
+                into(viewHolder.iv);
         return view;
     }
     class ViewHolder{

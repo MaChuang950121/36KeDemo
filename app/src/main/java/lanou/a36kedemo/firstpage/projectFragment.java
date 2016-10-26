@@ -3,6 +3,7 @@ package lanou.a36kedemo.firstpage;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -42,10 +43,10 @@ public class ProjectFragment extends BaseFragment {
 
     @Override
     protected void addAdapter() {
-        ArrayList<ProjectBean.DataBean.DataBeans> arrayList = new ArrayList<>();
-        ProjectAdapter adapter = new ProjectAdapter(context);
-        adapter.setArrayList(arrayList);
-        listView.setAdapter(adapter);
+//        ArrayList<ProjectBean> arrayList = new ArrayList<>();
+//        ProjectAdapter adapter = new ProjectAdapter(context);
+//        adapter.setArrayList(arrayList);
+//        listView.setAdapter(adapter);
 
     }
 
@@ -59,19 +60,29 @@ public class ProjectFragment extends BaseFragment {
         return R.layout.fragment_project;
     }
 
-    private class ProjectAsyncTask extends AsyncTask<GsonRequest<ProjectBean>,Void,GsonRequest<ProjectBean>>{
+    private class ProjectAsyncTask extends AsyncTask<GsonRequest<ProjectBean>,
+            Void,GsonRequest<ProjectBean>>{
 
         @Override
         protected GsonRequest<ProjectBean> doInBackground(GsonRequest<ProjectBean>... strings) {
-            final GsonRequest<ProjectBean> gsonRequest =  new GsonRequest<ProjectBean>(ProjectBean.class,
+            final GsonRequest<ProjectBean> gsonRequest =
+                    new GsonRequest<ProjectBean>(ProjectBean.class,
                     UrlValues.FIRSTPAGE_PROJECT, new Response.Listener<ProjectBean>() {
                 @Override
                 public void onResponse(ProjectBean response) {
-                    
+                    Log.d("ProjectAsyncTask", "response:" + response);
+                    ArrayList<ProjectBean.DataBean.DataBeans> beans = (ArrayList<ProjectBean.DataBean.DataBeans>) response.getData().getData();
+                    Log.d("ProjectAsyncTask", "beans:" + beans);
+
+                    ProjectAdapter adapter = new ProjectAdapter(context);
+                    adapter.setBean(beans);
+                    listView.setAdapter(adapter);
+
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    Log.d("ProjectAsyncTask", "error:" + error);
 
                 }
             });
@@ -84,6 +95,7 @@ public class ProjectFragment extends BaseFragment {
         protected void onPostExecute(GsonRequest<ProjectBean> s) {
             super.onPostExecute(s);
             VolleySingle.getVolleySingle().addRequest(s);
+
         }
     }
 }
