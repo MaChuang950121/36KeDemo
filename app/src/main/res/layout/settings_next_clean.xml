@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除缓存"
+        android:layout_marginLeft="25dp"
+        android:textSize="23dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/tv_settings_clean"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kb"
+        android:layout_marginLeft="300dp"
+        android:textSize="23dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/tv_cache"
+        />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/tv_settings_clean"
+        android:layout_alignRight="@id/tv_cache"
+
+        />
+</RelativeLayout>

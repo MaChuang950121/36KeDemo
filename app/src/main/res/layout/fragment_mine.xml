@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<include layout="@layout/user_item"/>
-<include layout="@layout/data_item"/>
-<include layout="@layout/collect_item"/>
-    <include layout="@layout/comment_item"/>
-<include layout="@layout/null_item"/>
-    <include layout="@layout/settings_item"/>
-    <include layout="@layout/feedback_item"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/user"
+        layout="@layout/user_item" />
+
+    <include
+        android:id="@+id/data"
+        layout="@layout/data_item" />
+
+    <include
+        android:id="@+id/collect"
+        layout="@layout/collect_item"
+
+        />
+
+    <include
+        android:id="@+id/comment"
+        layout="@layout/comment_item" />
+
+    <include layout="@layout/null_item" />
+
+    <include
+        android:id="@+id/settings"
+        layout="@layout/settings_item" />
+
+    <include
+        android:id="@+id/feedBack"
+        layout="@layout/feedback_item" />
 </LinearLayout>

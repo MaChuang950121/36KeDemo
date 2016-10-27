@@ -1,5 +1,6 @@
 package lanou.a36kedemo.tools;
 
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.android.volley.Request;
@@ -15,11 +16,13 @@ import lanou.a36kedemo.R;
 public class VolleySingle {
     private static VolleySingle volleySingle;
     private RequestQueue requestQueue;
+    private ImageLoader imageLoader;
 
-    private VolleySingle(){
-
+    private VolleySingle() {
         requestQueue = Volley.newRequestQueue(MyApp.getContext());
+        imageLoader = new ImageLoader(requestQueue, new MemoryCache());
     }
+
     public static VolleySingle getVolleySingle() {
         if (volleySingle == null) {
             synchronized (VolleySingle.class) {
@@ -32,7 +35,14 @@ public class VolleySingle {
         return volleySingle;
     }
 
-    public <T> void addRequest(Request<T> request){
+    public void getImage(String url, ImageView imageView) {
+        ImageLoader.ImageListener imageListener =
+                ImageLoader.getImageListener(imageView, R.mipmap.ic_launcher, R.mipmap.ic_launcher);
+
+        imageLoader.get(url, imageListener);
+    }
+
+    public <T> void addRequest(Request<T> request) {
         requestQueue.add(request);
     }
 }

@@ -2,9 +2,12 @@ package lanou.a36kedemo.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
+
+import java.util.ArrayList;
 
 import lanou.a36kedemo.MainActivity;
 import lanou.a36kedemo.R;
@@ -34,5 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
             view.setOnClickListener(clickListener);
         }
+    }
+    protected void bindFragment(ArrayList<Fragment> arrayList, Fragment fragment){
+        arrayList.add(fragment);
     }
 }

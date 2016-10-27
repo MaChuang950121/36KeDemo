@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mine.CommentActivity"/>
+        <activity android:name=".mine.CollectActivity"/>
+        <activity android:name=".mine.UserActivity"/>
+        <activity android:name=".mine.SettingsActivity"/>
     </application>
+
 
 </manifest>
