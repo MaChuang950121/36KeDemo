@@ -22,12 +22,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private View settings;
     private View feedBack;
     private Context context;
-    private RelativeLayout user2;
-    private RelativeLayout data2;
-    private RelativeLayout collect2;
-    private RelativeLayout comment2;
-    private RelativeLayout settings2;
-    private RelativeLayout feedBack2;
+//    private RelativeLayout user2;
+//    private RelativeLayout data2;
+//    private RelativeLayout collect2;
+//    private RelativeLayout comment2;
+//    private RelativeLayout settings2;
+//    private RelativeLayout feedBack2;
+    boolean key = false;
 
     @Override
     public void onAttach(Context context) {
@@ -79,29 +80,57 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.user:
-                Intent intent = new Intent(getActivity(),UserActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.data:
-                Intent intent1 = new Intent(getActivity(),UserActivity.class);
-                startActivity(intent1);
-                break;
-            case R.id.collect:
-                Intent intent2 = new Intent(getActivity(),CollectActivity.class);
-                startActivity(intent2);
-                break;
-            case R.id.comment:
-                Intent intent3 = new Intent(getActivity(),CommentActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.settings:
-                Intent intent4 = new Intent(getActivity(),SettingsActivity.class);
-                startActivity(intent4);
-                break;
-            case R.id.feedBack:
-                break;
+        if (key == false){
+            switch (view.getId()){
+                case R.id.user:
+                    Intent intent = new Intent(getActivity(), OffLineActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.data:
+                    Intent intent1 = new Intent(getActivity(), OffLineActivity.class);
+                    startActivity(intent1);
+                    break;
+                case R.id.collect:
+                    Intent intent2 = new Intent(getActivity(), CollectActivity.class);
+                    startActivity(intent2);
+                    break;
+                case R.id.comment:
+                    Intent intent3 = new Intent(getActivity(), OffLineActivity.class);
+                    startActivity(intent3);
+                    break;
+                case R.id.settings:
+                    Intent intent4 = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(intent4);
+                    break;
+                case R.id.feedBack:
+                    break;
+            }
+
+        }else {
+            switch (view.getId()) {
+                case R.id.user:
+                    Intent intent = new Intent(getActivity(), UserActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.data:
+                    Intent intent1 = new Intent(getActivity(), UserActivity.class);
+                    startActivity(intent1);
+                    break;
+                case R.id.collect:
+                    Intent intent2 = new Intent(getActivity(), CollectActivity.class);
+                    startActivity(intent2);
+                    break;
+                case R.id.comment:
+                    Intent intent3 = new Intent(getActivity(), CommentActivity.class);
+                    startActivity(intent3);
+                    break;
+                case R.id.settings:
+                    Intent intent4 = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(intent4);
+                    break;
+                case R.id.feedBack:
+                    break;
+            }
         }
     }
 }
