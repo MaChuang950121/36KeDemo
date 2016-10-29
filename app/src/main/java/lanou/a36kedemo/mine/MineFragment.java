@@ -28,7 +28,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 //    private RelativeLayout comment2;
 //    private RelativeLayout settings2;
 //    private RelativeLayout feedBack2;
-    boolean key = false;
+    boolean key = true;
 
     @Override
     public void onAttach(Context context) {
@@ -80,7 +80,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (key == false){
+        if (key == true){
             switch (view.getId()){
                 case R.id.user:
                     Intent intent = new Intent(getActivity(), OffLineActivity.class);

@@ -6,4 +6,6 @@ package lanou.a36kedemo.tools;
 public final class UrlValues {
     public static final String FIRSTPAGE_PROJECT = "https://rong.36kr.com/api/mobi/news?" +
             "pageSize=20&columnId=67&pagingAction=up";
+    public static final String FIRSTPAGE_RECOMMEND = "https://rong.36kr.com/api/mobi/new" +
+            "s?pageSize=20&columnId=all&pagingAction=up";
 }
